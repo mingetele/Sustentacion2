@@ -18,7 +18,7 @@ public class Sustentacion2 {
             System.out.println("1. Gestion de Libros");
             System.out.println("2. Gestion de Prestamos");
             System.out.println("3. Salir");
-            System.out.println("\nPor favor Seleccione una opcion");
+            System.out.println("Por favor Seleccione una opcion\n");
             opc = lector.nextInt();
             switch (opc) {
 
@@ -32,7 +32,7 @@ public class Sustentacion2 {
                         System.out.println("3. Eliminar Libros");
                         System.out.println("4. Buscar Libro");
                         System.out.println("5. Salir");
-                        System.out.println("\nPor favor Seleccione una opcion");
+                        System.out.println("Por favor Seleccione una opcion\n");
                         opc = lector.nextInt();
 
                         switch (opc) {
@@ -40,15 +40,15 @@ public class Sustentacion2 {
                                 if (contLib < 49) {
                                     libro[contLib] = new Libros();
 
-                                    System.out.print("Digite el Nombre o Titulo del libro:");
+                                    System.out.print("Digite el Nombre o Titulo del libro: ");
                                     libro[contLib].setTitulo(lector.next());
-                                    System.out.print("Digite el Nombre del Autor del libro:");
+                                    System.out.print("Digite el Nombre del Autor del libro: ");
                                     libro[contLib].setAutor(lector.next());
-                                    System.out.print("Digite el año de publicacion del libro:");
+                                    System.out.print("Digite el año de publicacion del libro: ");
                                     libro[contLib].setYearPublic(lector.next());
-                                    System.out.print("Digite el codigo del libro:");
+                                    System.out.print("Digite el codigo del libro: ");
                                     libro[contLib].setCodigo(lector.next());
-                                    System.out.print("Digite la cantidad de libros a ingresar:");
+                                    System.out.print("Digite la cantidad de libros a ingresar: ");
                                     libro[contLib].setCantidad(lector.next());
                                     System.out.print("Digite el area a la cual pertenece el libro; Quimica, Fisica, Tecnologia, Calculo o Programacion: ");
                                     libro[contLib].setArea(lector.next());
@@ -67,21 +67,21 @@ public class Sustentacion2 {
                                     if (name.equals(libro[i].getTitulo())) {
                                         busqueda = 1;
 
-                                        System.out.print("Actualice el Nombre del Autor del libro:");
+                                        System.out.print("Actualice el Nombre del Autor del libro: ");
                                         libro[i].setAutor(lector.next());
-                                        System.out.print("Actualice el año de publicacion del libro:");
+                                        System.out.print("Actualice el año de publicacion del libro: ");
                                         libro[i].setYearPublic(lector.next());
-                                        System.out.print("Actualice el codigo del libro:");
+                                        System.out.print("Actualice el codigo del libro: ");
                                         libro[i].setCodigo(lector.next());
-                                        System.out.print("Actualice la cantidad de libros a ingresar:");
+                                        System.out.print("Actualice la cantidad de libros a ingresar: ");
                                         libro[i].setCantidad(lector.next());
-                                        System.out.print("Actualice el area a la cual pertenece el libro; Quimica, Fisica, Tecnologia, Calculo o Programacion:");
+                                        System.out.print("Actualice el area a la cual pertenece el libro; Quimica, Fisica, Tecnologia, Calculo o Programacion: ");
                                         libro[i].setArea(lector.next());
 
                                     }
                                 }
                                 if (busqueda == 0) {
-                                    System.out.println("USUARIO NO ENCONTRADO");
+                                    System.out.println("LIBRO NO ENCONTRADO");
                                 } else {
                                     busqueda = 0;
                                 }
@@ -135,7 +135,7 @@ public class Sustentacion2 {
                                 break;
 
                             case 5:
-                                System.out.println("GRACIAS POR UTILIZAR ESTE PROGRAMA");
+                                System.out.println("");
                                 break;
 
                             default:
@@ -161,103 +161,101 @@ public class Sustentacion2 {
                         System.out.println("BASE DE DATOS LLENA ");
                     }
 
-                    System.out.println("QUE DESEA HACER:");
-                    System.out.println("1. Prestar Libros");
-                    System.out.println("2. Devolver Libros");
-                    System.out.println("3. Consultar Libros Prestados");
-                    System.out.println("4. SALIR");
-                    System.out.println("\nPor favor Seleccione una opcion");
-                    opc = lector.nextInt();
+                    do {
 
-                    switch (opc) {
+                        System.out.println("\nQUE DESEA HACER:");
+                        System.out.println("1. Prestar Libros");
+                        System.out.println("2. Devolver Libros");
+                        System.out.println("3. Consultar Libros Prestados");
+                        System.out.println("4. SALIR");
+                        System.out.println("Por favor Seleccione una opcion\n");
+                        opc = lector.nextInt();
 
-                        case 1:
-                            System.out.println("PRESTAR LIBROS\n");
-                            System.out.println("Digite el Titulo del libro que desea Prestar: ");
-                            name = lector.next();
+                        switch (opc) {
 
-                            for (int i = 0; i < contLib; i++) {
-                                if (name.equals(libro[i].getTitulo())) {
-                                    busqueda = 1;
+                            case 1:
+                                System.out.println("PRESTAR LIBROS\n");
+                                System.out.println("Digite el Titulo del libro que desea Prestar: ");
+                                name = lector.next();
 
-                                    contLib--;
+                                for (int i = 0; i < contLib; i++) {
+                                    if (name.equals(libro[i].getTitulo())) {
+                                        busqueda = 1;
 
-                                    System.out.println("EL LIBRO " + name + " HA SIDO PRESTADO.");
+                                        contLib--;
+                                        prestLib++;
 
-                                }
-                            }
+                                        System.out.println("EL LIBRO " + name + " HA SIDO PRESTADO.");
 
-                            if (busqueda == 0) {
-                                System.out.println("LIBRO NO ENCONTRADO");
-                            } else {
-                                busqueda = 0;
-
-                            }
-
-                            for (int i = 0; i < prestLib; i++) {
-                                if (name.equals(libro[i].getTitulo())) {
-                                    busqueda = 1;
-
-                                    prestLib++;
-                                    System.out.println("");
+                                    }
                                 }
 
-                            }
-                             if (busqueda == 0) {
-                                System.out.println("LIBRO NO ENCONTRADO");
-                            } else {
-                                busqueda = 0;
-
-                            }
-
-                            break;
-
-                        case 2:
-                            System.out.println("DEVOLVER LIBROS\n");
-                            System.out.println("Digite el Titulo del libro que desea Devolver: ");
-                            name = lector.next();
-
-                            for (int i = 0; i < prestLib; i++) {
-                                if (name.equals(libro[i].getTitulo())) {
-                                    busqueda = 1;
-
-                                    prestLib--;
-
-                                    System.out.println("EL LIBRO " + name + " HA SIDO DEVUELTO.");
+                                if (busqueda == 0) {
+                                    System.out.println("LIBRO NO ENCONTRADO");
+                                } else {
+                                    busqueda = 0;
 
                                 }
-                            }
 
-                            if (busqueda == 0) {
-                                System.out.println("LIBRO NO ENCONTRADO");
-                            } else {
-                                busqueda = 0;
+                                break;
 
-                            }
+                            case 2:
+                                System.out.println("DEVOLVER LIBROS\n");
+                                System.out.println("Digite el Titulo del libro que desea Devolver: ");
+                                name = lector.next();
 
-                            for (int i = 0; i < contLib; i++) {
-                                if (name.equals(libro[i].getTitulo())) {
-                                    busqueda = 1;
+                                for (int i = 0; i < prestLib; i++) {
+                                    if (name.equals(libro[i].getTitulo())) {
+                                        busqueda = 1;
 
-                                    contLib--;
+                                        prestLib--;
+                                        contLib++;
+
+                                        System.out.println("EL LIBRO " + name + " HA SIDO DEVUELTO.");
+
+                                    }
                                 }
 
-                            }
+                                if (busqueda == 0) {
+                                    System.out.println("LIBRO NO ENCONTRADO");
+                                } else {
+                                    busqueda = 0;
 
-                            break;
+                                }
 
-                        case 3:
-                            System.out.println("CONSULTAR LIBROS PRESTADOS");
-                            break;
+                                break;
 
-                    }
-                    while (opc != 4);
+                            case 3:
+                                System.out.println("LIBROS PRESTADOS: " + prestLib);
 
+                                break;
+
+                            default:
+                                System.out.println("POR FAVOR INGRESE UNA OPCION VALIDA \n");
+                                break;
+                                
+                            case 4:
+                                System.out.println("");
+                                break;
+
+                        }
+
+                    } while (opc != 4);
+
+                    break;
+                    
+                case 3:
+                    System.out.println("GRACIAS POR UTILIZAR ESTE PROGRAMA");
+                    break;
+
+                default:
+                    System.out.println("POR FAVOR INGRESE UNA OPCION VALIDA \n");
                     break;
 
             }
 
         } while (opc != 3);
+        
 
     }
 
